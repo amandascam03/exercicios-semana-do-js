@@ -9,11 +9,7 @@
 
 const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 
-const imparNumbers = randomNumbers.filter(item => {
-  return item % 2 !== 0
-})
-console.log("array original", randomNumbers);
-console.log("array filtrado", imparNumbers);
+const oddNumbers = randomNumbers.filter(item => item % 2 !== 0);
 
 
 /*
@@ -24,12 +20,7 @@ console.log("array filtrado", imparNumbers);
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
 
-const minorThan501 = crazyNumbers.filter(item => {
-  return item < 501;
-})
-
-console.log("array original", crazyNumbers);
-console.log("array filtrado", minorThan501);
+const minorThan501 = crazyNumbers.reduce((acc, item) => item < 501 ? acc + 1 : acc, 0);
 /*
   03
 
@@ -41,12 +32,7 @@ console.log("array filtrado", minorThan501);
 
 const numbers = [5, 7, 3]
 
-const expNumbers = numbers.map(numero => {
-  return numero ** 2;
-})
-
-console.log("array original", numbers);
-console.log("array com numeros elevados ao quadrado", expNumbers);
+const expNumbers = numbers.map(numero => numero ** 2);
 
 /*
   04
@@ -69,14 +55,7 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
-const before200 = tarantinoMovies.filter(movie => {
-  if (movie.release < 2000) {
-    return { name: movie.name, release: movie.release }
-  }
-})
-
-console.log("array original", tarantinoMovies);
-console.log("array de filmes filtrado", before200);
+const before2000 = tarantinoMovies.filter(({release}) => release < 2000);
 
 /*
   05
@@ -95,12 +74,7 @@ const tvShows = [
   { name: 'Watchmen', releaseYear: 2019 }
 ]
 
-const onlyNames = tvShows.map(obj => {
-  return obj.name;
-})
-
-console.log("array original", tvShows);
-console.log("array de nomes", onlyNames);
+const onlyNames = tvShows.map(({name}) => name);
 
 /*
   06
@@ -121,12 +95,7 @@ const cart = [
   { name: 'Death Stranding', price: 149.99 }
 ]
 
-const string = cart.reduce((acc, lista) => {
-  return acc + "- " + lista.name + "\n";
-}, "")
-
-console.log("array original", cart);
-console.log("array em lista \n", string);
+const string = cart.reduce((acc, {name}) => `${acc}- ${name}\n`, "");
 
 /*
 - Nome 1
